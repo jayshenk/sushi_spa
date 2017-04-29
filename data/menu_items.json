@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "name": "Sashimi salad",
+    "price": 12.00,
+    "image": "sashimi-salad.jpg"
+  }, {
+    "id": 2,
+    "name": "Chirashi sushi",
+    "price": 21.00,
+    "image": "chirashi-sushi.jpg"
+  }
+]
