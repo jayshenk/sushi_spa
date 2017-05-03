@@ -1,11 +1,8 @@
 var router = new (Backbone.Router.extend({
   routes: {
-    "index.html": navigateToMenu
+    "index.html": function() { this.navigate("menu", { trigger: true }); },
+    "menu": App.menuView
   }
 }))();
-
-function navigateToMenu() {
-  router.navigate("menu");
-}
 
 Backbone.history.start({ pushState: true });
