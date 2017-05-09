@@ -45,5 +45,5 @@ function removeWhitespace(template) {
 }
 
 function extractFileName(file) {
-  return file.match(/(.+)\.hbs$/).pop();
+  return file.match(/\/(.+)\.hbs$/).pop();
 }
