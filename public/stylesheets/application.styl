@@ -1,4 +1,5 @@
 @import "whitespace-reset-modified.css"
+@import "mixins"
 
 body
   background: url("../images/background-image.png") repeat
@@ -9,7 +10,7 @@ body
     width: 1000px
   > header
   > footer
-    border-bottom: 1px solid #787878
+    border-bottom: 1px solid colors.border
   > header
     overflow: hidden
     margin: 0 auto
@@ -31,18 +32,18 @@ body
           padding: 8px 5px
           text-transform: uppercase
           text-align: center
-          color: #b0b0b0
-          background: #000
+          color: colors.cart.headerText
+          background: colors.cart.bg
         &.right
           width: 50%
-          color: #fff
+          color: colors.button.text
           position: relative
           padding: 7px 15px 7px 10px
-          background: linear-gradient(to bottom, #d60041 0%, #a90040 100%)
+          background: linear-gradient(to bottom, colors.button.gradientLight 0%, colors.button.gradientDark 100%)
           text-align: center
           text-transform: uppercase
           &:hover
-            background: linear-gradient(to bottom, #a90040 0%, #d60041 100%)
+            background: linear-gradient(to bottom, colors.button.gradientDark 0%, colors.button.gradientLight 100%)
           &:before
             content: ""
             display: block
@@ -51,10 +52,10 @@ body
             position: absolute
             left: 0
             top: 0
-            border-top: 14px solid #000
+            border-top: 14px solid colors.cart.bg
             border-right: 14px solid transparent
             border-bottom: 14px solid transparent
-            border-left: 14px solid #000
+            border-left: 14px solid colors.cart.bg
         &.count
           font-size: 12px
   > footer
@@ -78,8 +79,8 @@ main
 #cart
   height: 120px
   overflow: hidden
-  background: #000
-  color: #fff
+  background: colors.cart.bg
+  color: colors.cart.text
   ul
     float: left
     height: inherit
@@ -95,11 +96,11 @@ main
     float: right
     width: 200px
     padding: 20px 0 10px 15px
-    background: #1f1f1f
+    background: colors.cart.summaryBG
     h3
       font-size: 10px
       text-transform: uppercase
-      color: #b0b0b0
+      color: colors.cart.headerText
     .total
       margin: 5px 0
       font-size: 30px
@@ -112,17 +113,17 @@ main
         font-size: 10px
         &.left
           width: 40%
-          color: #ff3170
+          color: colors.cancel
           text-transform: uppercase
         &.right
           width: 60%
-          color: #fff
+          color: colors.button.text
           position: relative
           padding: 7px 15px 7px 10px
-          background: linear-gradient(to bottom, #d60041 0%, #a90040 100%)
+          background: linear-gradient(to bottom, colors.button.gradientLight 0%, colors.button.gradientDark 100%)
           text-transform: uppercase
           &:hover
-            background: linear-gradient(to bottom, #a90040 0%, #d60041 100%)
+            background: linear-gradient(to bottom, colors.button.gradientDark 0%, colors.button.gradientLight 100%)
           &:before
             content: ""
             display: block
@@ -131,21 +132,21 @@ main
             position: absolute
             left: 0
             top: 0
-            border-top: 14px solid #1f1f1f
+            border-top: 14px solid colors.cart.summaryBG
             border-right: 14px solid transparent
             border-bottom: 14px solid transparent
-            border-left: 14px solid #1f1f1f
+            border-left: 14px solid colors.cart.summaryBG
 
 #items
   li
     position: relative
     height: 340px
     margin: 20px 0 0 0
-    background: #fff
+    background: colors.items.bg
     box-sizing: border-box
     article
       position: absolute
-      box-shadow: 2px 0px 2px -2px #888
+      box-shadow: 2px 0px 2px -2px colors.items.shadow
       z-index: 10
     &:nth-child(5n)
       article
@@ -158,7 +159,7 @@ main
       cursor: pointer
       &:hover
         h2
-          color: #000
+          color: colors.items.hover
         &:after
           position: absolute
           box-sizing: border-box
@@ -177,21 +178,21 @@ main
         font-weight: normal
         font-size: 20px
         letter-spacing: 1px
-        color: #ab7829
+        color: colors.items.heading
     p
       margin: 0 0 20px 0
       text-align: center
       letter-spacing: 1px
-      color: #b0b0b0
+      color: colors.items.price
     .add_cart
       display: block
       padding: 13px 0
-      border-top: 1px dotted #b0b0b0
+      border-top: 1px dotted colors.items.border
       text-align: center
       text-transform: uppercase
       font-size: 12px
       cursor: pointer
-      color: #d60041
+      color: colors.items.add
       &:before
         content: "+"
         margin: 0 5px 0 0
@@ -200,7 +201,7 @@ main
         font-weight: bold
       &:hover
         color: #fff
-        background: #d60041
+        background: colors.items.add
         transition: color 0.75s, background 0.75s
 
 #item_details
@@ -224,16 +225,16 @@ main
     .nav
       width: 100px
       padding: 80px 0 0 0
-      background: #000
+      background: colors.item.navPrimary
       text-align: center
       cursor: pointer
       &:hover
-        color: #000
-        background: #d60041
+        color: colors.item.navPrimary
+        background: colors.item.navSecondary
         transition: color 0.35s, background 0.35s
     article
     aside
-      background: #fff
+      background: colors.items.bg
     article
       width: 400px
       h1
@@ -244,24 +245,24 @@ main
         margin: 0 0 0 25px
       footer
         margin: 45px 0 0 0
-        border-top: 1px dotted #b0b0b0
+        border-top: 1px dotted colors.items.border
         > *
           display: inline-block
         h2
           margin: 20px 0 0 25px
           font-size: 30px
           font-weight: normal
-          color: #787878
+          color: colors.item.textSecondary
         .add_cart
           float: right
           margin: 20px 25px 0 0
-          color: #fff
+          color: colors.button.text
           position: relative
           padding: 7px 15px 7px 10px
-          background: linear-gradient(to bottom, #d60041 0%, #a90040 100%)
+          background: linear-gradient(to bottom, colors.button.gradientLight 0%, colors.button.gradientDark 100%)
           text-transform: uppercase
           &:hover
-            background: linear-gradient(to bottom, #a90040 0%, #d60041 100%)
+            background: linear-gradient(to bottom, colors.button.gradientDark 0%, colors.button.gradientLight 100%)
           &:before
             content: "+"
             margin: 0 5px 0 0
@@ -273,11 +274,11 @@ main
         margin: 10px 20px 0 0
         transform: rotate(45deg)
         font-size: 25px
-        color: #000
+        color: colors.item.navPrimary
     aside
       width: 200px
       padding: 0 20px
-      box-shadow: -1px 0px 2px 0px #aaa
+      box-shadow: -1px 0px 2px 0px colors.item.shadow
       h3
         margin: 30px 0 15px 0
         font-size: 13px
@@ -287,10 +288,10 @@ main
         width: 100%
         tr
           td
-            color: #787878
+            color: colors.item.textSecondary
             + td
               text-align: right
-              color: #000
+              color: colors.item.text
 
 #checkout
   > div
@@ -302,7 +303,7 @@ main
       background-position: bottom
   > section
     padding: 55px 100px
-    background: #fff
+    background: colors.checkout.bg
     h1
       margin: 0 0 60px 0
       font-size: 40px
@@ -314,8 +315,8 @@ main
         text-transform: uppercase
       tbody
         td
-          border-top: 1px solid #b0b0b0
-          border-bottom: 1px solid #b0b0b0
+          border-top: 1px solid colors.checkout.border
+          border-bottom: 1px solid colors.checkout.border
           img
             height: 100px
       td:nth-child(4)
@@ -343,30 +344,30 @@ main
       text-align: right
       font-size: 10px
       text-transform: uppercase
-      color: #787878
+      color: colors.checkout.textSecondary
       .total
         margin: 0 0 0 10px
         font-size: 30px
         letter-spacing: 2px
-        color: #000
+        color: colors.checkout.text
     footer
       margin: 50px 0 0 0
       text-align: right
       a
-        color: #ff3170
+        color: colors.cancel
         text-transform: uppercase
       form
         display: inline-block
         margin: 0 0 0 20px
         input
           border: none
-          color: #fff
+          color: colors.button.text
           position: relative
           padding: 7px 15px 7px 10px
-          background: linear-gradient(to bottom, #d60041 0%, #a90040 100%)
+          background: linear-gradient(to bottom, colors.button.gradientLight 0%, colors.button.gradientDark 100%)
           text-transform: uppercase
           font-size: 14px
           padding: 15px
           &:hover
-            background: linear-gradient(to bottom, #a90040 0%, #d60041 100%)
+            background: linear-gradient(to bottom, colors.button.gradientDark 0%, colors.button.gradientLight 100%)
 
