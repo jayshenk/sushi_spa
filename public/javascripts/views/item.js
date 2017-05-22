@@ -1,9 +1,11 @@
 var ItemView = Backbone.View.extend({
-  tagname: "li",
+  tagName: "li",
   template: App.templates.item,
   render: function() {
+    var id = this.model.get("id");
+
+    this.$el.attr("data-id", id);
     this.$el.html(this.template(this.model.toJSON()));
-    this.$el.appendTo(App.$content.find("#items"));
   },
   initialize: function() {
     this.render();
