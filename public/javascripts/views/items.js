@@ -3,7 +3,7 @@ var ItemsView = Backbone.View.extend({
   tagName: "ul",
   render: function() {
     this.collection.each(this.renderItem.bind(this));
-    this.$el.appendTo(App.$content);
+    App.$content.html(this.$el);
   },
   renderItem: function(item) {
     var itemView = new ItemView({ model: item });

@@ -6,6 +6,7 @@ var ItemDetailView = Backbone.View.extend({
     App.$content.html(this.$el);
   },
   initialize: function() {
-    this.render();
+    this.model.trigger("get_details");
+    this.listenTo(this.model, "details_loaded", this.render);
   }
 });
