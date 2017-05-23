@@ -5,7 +5,7 @@ var ItemView = Backbone.View.extend({
     "click header": "viewItemDetails"
   },
   viewItemDetails: function() {
-    App.trigger("viewItemDetails", this.model);
+    this.model.trigger("view_item_details", this.model);
   },
   render: function() {
     var id = this.model.get("id");

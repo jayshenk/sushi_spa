@@ -10,11 +10,14 @@ var App = {
     this.itemsView = new ItemsView({ collection: this.items });
   },
   renderItemDetails: function(model) {
+    var id = model.get("id");
+
+    router.navigate("menu/" + id);
     new ItemDetailView({ model: model });
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.on("viewItemDetails", this.renderItemDetails);
+    this.listenToOnce(this.items, "view_item_details", this.renderItemDetails);
   }
 };
 
