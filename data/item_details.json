@@ -1,12 +1,25 @@
-[{
-  "itemID": 1,
-  "details": {
-    "description": "Organic greens topped with fresh sashimi, wasabi soy vinaigrette.",
-    "protein": 2.9156,
-    "fat": 2.4396,
-    "carbohydrates": 3.8071,
-    "energyKJ": 17.5775,
-    "energyKCal": 4.2011,
-    "sugar": 0.3738
+[
+  {
+    "itemID": 1,
+    "details": {
+      "description": "Organic greens topped with fresh sashimi, wasabi soy vinaigrette.",
+      "protein": 2.9156,
+      "fat": 2.4396,
+      "carbohydrates": 3.8071,
+      "energyKJ": 17.5775,
+      "energyKCal": 4.2011,
+      "sugar": 0.3738
+    }
+  }, {
+    "itemID": 2,
+    "details": {
+      "description": "Sushi bar variety with sushi rice.",
+      "protein": 2.3138,
+      "fat": 0.6041,
+      "carbohydrates": 7.8006,
+      "energyKJ": 7.5314,
+      "energyKCal": 1.8000,
+      "sugar": 0.3114
+    }
   }
-}]
+]

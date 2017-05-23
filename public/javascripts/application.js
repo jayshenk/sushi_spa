@@ -24,3 +24,7 @@ var App = {
 Handlebars.registerHelper("format_price", function(price) {
   return (+price).toFixed(2);
 });
+
+Handlebars.registerHelper("format_nutrition", function(amount) {
+  return (+amount).toFixed(4);
+});
