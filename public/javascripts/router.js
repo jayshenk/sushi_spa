@@ -3,7 +3,7 @@ var router = new (Backbone.Router.extend({
     "index.html": function() { this.navigate("menu", { trigger: true }); },
     "menu": "menu"
   },
-  menu: function() { App.menuView(); }
+  menu: function() { App.renderItems(); }
 }))();
 
 Backbone.history.start({ pushState: true });

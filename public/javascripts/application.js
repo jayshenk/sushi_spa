@@ -2,10 +2,6 @@ var App = {
   templates: JST,
   $el: $("main"),
   $content: $("#content"),
-  menuView: function() {
-    this.renderItems();
-    this.bindEvents();
-  },
   renderItems: function() {
     this.itemsView = new ItemsView({ collection: this.items });
   },
@@ -17,8 +13,13 @@ var App = {
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.listenToOnce(this.items, "view_item_details", this.renderItemDetails);
-  }
+    this.listenTo(this.items, "view_item_details", this.renderItemDetails);
+  },
+  initialize: function(items) {
+    this.items = items;
+    this.bindEvents();
+    this.renderItems();
+  },
 };
 
 Handlebars.registerHelper("format_price", function(price) {

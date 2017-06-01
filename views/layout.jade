@@ -20,9 +20,10 @@ html
 
     +javascript_include_tag("application")
     +javascript_include_tag("models/item")
-    +javascript_include_tag("collections/items")
+    +javascript_include_tag("collections/items", "collections/cart_items")
     +javascript_include_tag("views/item", "views/items", "views/itemDetail")
+    +javascript_include_tag("views/cart")
     script.
-      App.items = new Items(!{JSON.stringify(items)});
+      App.initialize(new Items(!{JSON.stringify(items)}));
     +javascript_include_tag("router")
     block scripts
