@@ -5,19 +5,12 @@ var App = {
   renderItems: function() {
     this.itemsView = new ItemsView({ collection: this.items });
   },
-  renderItemDetails: function(model) {
-    var id = model.get("id");
-
-    router.navigate("menu/" + id);
+  itemDetail: function(id) {
+    var model = this.items.get(id);
     new ItemDetailView({ model: model });
-  },
-  bindEvents: function() {
-    _.extend(this, Backbone.Events);
-    this.listenTo(this.items, "view_item_details", this.renderItemDetails);
   },
   initialize: function(items) {
     this.items = items;
-    this.bindEvents();
     this.renderItems();
   },
 };

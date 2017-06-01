@@ -1,9 +1,9 @@
 var router = new (Backbone.Router.extend({
   routes: {
     "index.html": function() { this.navigate("menu", { trigger: true }); },
-    "menu": "menu"
-  },
-  menu: function() { App.renderItems(); }
+    "menu": App.renderItems.bind(App),
+    "menu/:id": App.itemDetail.bind(App)
+  }
 }))();
 
 Backbone.history.start({ pushState: true });
