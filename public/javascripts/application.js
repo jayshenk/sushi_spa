@@ -9,9 +9,30 @@ var App = {
     var model = this.items.get(id);
     new ItemDetailView({ model: model });
   },
+  prevItemDetail: function(currentId) {
+    var prevId = currentId == 1 ? 1 : currentId - 1;
+    router.navigate("menu/" + prevId, { trigger: true });
+  },
+  nextItemDetail: function(currentId) {
+    var nextId;
+
+    if (currentId == this.items.toJSON().length) {
+      nextId = 1;
+    } else {
+      nextId = currentId + 1;
+    }
+    router.navigate("menu/" + nextId, { trigger: true });
+  },
+  bindEvents: function() {
+    _.extend(this, Backbone.Events);
+    this.on("next_item_detail", this.nextItemDetail.bind(this));
+    this.on("prev_item_detail", this.prevItemDetail.bind(this));
+  },
   initialize: function(items) {
     this.items = items;
+    this.cart = new CartItems();
     this.renderItems();
+    this.bindEvents();
   },
 };
 
@@ -19,6 +40,6 @@ Handlebars.registerHelper("format_price", function(price) {
   return (+price).toFixed(2);
 });
 
-Handlebars.registerHelper("format_nutrition", function(amount) {
+Handlebars.registerHelper("format_kcal", function(amount) {
   return (+amount).toFixed(4);
 });
