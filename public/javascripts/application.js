@@ -25,6 +25,7 @@ var App = {
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
+    this.on("add_to_cart", this.cart.addItem.bind(this.cart));
     this.on("next_item_detail", this.nextItemDetail.bind(this));
     this.on("prev_item_detail", this.prevItemDetail.bind(this));
   },
