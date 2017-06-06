@@ -3,7 +3,8 @@ var ItemDetailView = Backbone.View.extend({
   template: App.templates.itemDetail,
   events: {
     "click .prev": "prevItemDetail",
-    "click .next": "nextItemDetail"
+    "click .next": "nextItemDetail",
+    "click a.add_cart": "addToCart"
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
@@ -16,6 +17,10 @@ var ItemDetailView = Backbone.View.extend({
   nextItemDetail: function() {
     var id = this.model.get("id");
     App.trigger("next_item_detail", id);
+  },
+  addToCart: function(e) {
+    e.preventDefault();
+    App.trigger("add_to_cart", this.model);
   },
   initialize: function() {
     this.model.trigger("get_details");
