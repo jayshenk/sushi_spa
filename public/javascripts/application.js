@@ -5,6 +5,12 @@ var App = {
   renderItems: function() {
     this.itemsView = new ItemsView({ collection: this.items });
   },
+  createCart: function() {
+    this.cart = new CartItems();
+    this.cart.view = new CartView({
+      collection: this.cart
+    });
+  },
   itemDetail: function(id) {
     var model = this.items.get(id);
     new ItemDetailView({ model: model });
@@ -31,8 +37,8 @@ var App = {
   },
   initialize: function(items) {
     this.items = items;
-    this.cart = new CartItems();
     this.renderItems();
+    this.createCart();
     this.bindEvents();
   },
 };
