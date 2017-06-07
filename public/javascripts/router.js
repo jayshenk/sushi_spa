@@ -2,13 +2,17 @@ var router = new (Backbone.Router.extend({
   routes: {
     "index.html": function() { this.navigate("menu", { trigger: true }); },
     "menu": App.renderItems.bind(App),
-    "menu/:id": App.itemDetail.bind(App)
+    "menu/:id": App.itemDetail.bind(App),
+    "checkout": App.checkout
   }
 }))();
 
 Backbone.history.start({ pushState: true });
 
-$(document).on("click", "a[href='/']", function(e) {
+$(document).on("click", "a[href^='/']", function(e) {
   e.preventDefault();
-  router.navigate("menu", { trigger: true });
+  var href = $(e.currentTarget).attr("href").replace(/^\//, "");
+  var route = href || "menu";
+
+  router.navigate(route, { trigger: true });
 });

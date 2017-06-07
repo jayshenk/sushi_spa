@@ -29,6 +29,9 @@ var App = {
     }
     router.navigate("menu/" + nextId, { trigger: true });
   },
+  checkout: function() {
+    new CheckoutView({ collection: this.cart });
+  },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.on("add_to_cart", this.cart.addItem.bind(this.cart));
