@@ -15,6 +15,9 @@ var CartView = Backbone.View.extend({
     if (this.collection.length && this.$el.is(":hidden")) {
       this.$el.slideDown(this.delay);
     }
+    if (!this.collection.length) {
+      this.$el.hide();
+    }
   },
   empty: function(e) {
     e.preventDefault();

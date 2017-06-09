@@ -14,7 +14,7 @@ var CheckoutView = Backbone.View.extend({
     this.render();
   },
   cancel: function() {
-    this.collection.trigger("cancel_order");
+    this.collection.trigger("empty_cart");
   },
   render: function() {
     this.$el.html(this.template({

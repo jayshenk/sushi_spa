@@ -16,7 +16,7 @@ var App = {
     new ItemDetailView({ model: model });
   },
   prevItemDetail: function(currentId) {
-    var prevId = currentId == 1 ? 1 : currentId - 1;
+    var prevId = currentId === 1 ? 1 : currentId - 1;
     router.navigate("menu/" + prevId, { trigger: true });
   },
   nextItemDetail: function(currentId) {
