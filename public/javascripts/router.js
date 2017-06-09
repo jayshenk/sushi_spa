@@ -3,7 +3,7 @@ var router = new (Backbone.Router.extend({
     "index.html": function() { this.navigate("menu", { trigger: true }); },
     "menu": App.renderItems.bind(App),
     "menu/:id": App.itemDetail.bind(App),
-    "checkout": App.checkout
+    "checkout": App.checkout.bind(App)
   }
 }))();
 

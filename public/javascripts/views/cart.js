@@ -18,8 +18,9 @@ var CartView = Backbone.View.extend({
   },
   empty: function(e) {
     e.preventDefault();
-    this.$el.slideUp(this.delay);
-    this.collection.trigger("empty_cart");
+    this.$el.slideUp(this.delay, function() {
+      this.collection.trigger("empty_cart");
+    }.bind(this));
   },
   delay: 300,
   initialize: function() {
