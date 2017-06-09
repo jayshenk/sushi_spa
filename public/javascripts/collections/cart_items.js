@@ -48,10 +48,15 @@ var CartItems = Backbone.Collection.extend({
     this.reset();
     this.update();
   },
+  cancelOrder: function() {
+    this.empty();
+    this.view.$el.hide();
+  },
   initialize: function() {
     this.readStorage();
     this.on("empty_cart", this.empty);
     this.on("increment_item", this.incrementItem);
     this.on("subtract_item", this.subtractItem);
+    this.on("cancel_order", this.cancelOrder);
   }
 });
