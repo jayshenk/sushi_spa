@@ -7,9 +7,8 @@ var App = {
   },
   createCart: function() {
     this.cart = new CartItems();
-    this.cart.view = new CartView({
-      collection: this.cart
-    });
+    this.cart.view = new CartView({ collection: this.cart });
+    new CartCountView({ collection: this.cart });
   },
   itemDetail: function(id) {
     var model = this.items.get(id);
