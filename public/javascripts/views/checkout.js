@@ -3,7 +3,8 @@ var CheckoutView = Backbone.View.extend({
   template: App.templates.checkout,
   events: {
     "click span.quantity_modifier": "modifyQuantity",
-    "click a": "cancel"
+    "click a": "cancel",
+    "submit": "order"
   },
   modifyQuantity: function(e) {
     var $el = $(e.target);
@@ -15,6 +16,20 @@ var CheckoutView = Backbone.View.extend({
   },
   cancel: function() {
     this.collection.trigger("empty_cart");
+  },
+  order: function(e) {
+    e.preventDefault();
+    var $f = this.$("form");
+
+    $.ajax({
+      url: $f.attr("action"),
+      type: $f.attr("method"),
+      data: { itemsOrdered: JSON.stringify(this.collection.toJSON()) },
+      success: function() {
+        this.collection.trigger("empty_cart");
+        router.navigate("menu", { trigger: true });
+      }.bind(this)
+    });
   },
   render: function() {
     this.$el.html(this.template({
