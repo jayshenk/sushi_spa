@@ -37,7 +37,7 @@ var CartItems = Backbone.Collection.extend({
     var item = this.get(id);
     var quantity = item.get("quantity");
 
-    quantity == 1 ? this.remove(id) : item.set("quantity", quantity - 1);
+    quantity === 1 ? this.remove(id) : item.set("quantity", quantity - 1);
     this.update();
   },
   update: function() {
