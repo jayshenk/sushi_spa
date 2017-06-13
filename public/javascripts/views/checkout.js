@@ -10,7 +10,7 @@ var CheckoutView = Backbone.View.extend({
     var $el = $(e.target);
     var id = $el.closest("tr").attr("data-id");
 
-    eventName = $el.is(".fa-minus") ? "subtract_item" : "increment_item"
+    eventName = $el.is(".fa-minus") ? "decrement_item" : "increment_item"
     this.collection.trigger(eventName, id);
     this.render();
   },

@@ -33,7 +33,7 @@ var CartItems = Backbone.Collection.extend({
     item.set("quantity", item.get("quantity") + 1);
     this.update();
   },
-  subtractItem: function(id) {
+  decrementItem: function(id) {
     var item = this.get(id);
     var quantity = item.get("quantity");
 
@@ -52,6 +52,6 @@ var CartItems = Backbone.Collection.extend({
     this.readStorage();
     this.on("empty_cart", this.empty);
     this.on("increment_item", this.incrementItem);
-    this.on("subtract_item", this.subtractItem);
+    this.on("decrement_item", this.decrementItem);
   }
 });

@@ -21,7 +21,7 @@ var App = {
   nextItemDetail: function(currentId) {
     var nextId;
 
-    if (currentId == this.items.toJSON().length) {
+    if (currentId === this.items.toJSON().length) {
       nextId = 1;
     } else {
       nextId = currentId + 1;
